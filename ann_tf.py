@@ -28,7 +28,7 @@ class ANN(object):
     def __init__(self, hidden_layer_sizes):
         self.hidden_layer_sizes = hidden_layer_sizes
 
-    def fit(self, X, Y, Xvalid, Yvalid, learning_rate=1e-2, mu=0.99, decay=0.999, reg=1e-3, epochs=10, batch_sz=100, show_fig=False):
+    def fit(self, X, Y, Xvalid, Yvalid, learning_rate=1e-2, mu=0.99, decay=0.999, reg=1e-3, epochs=100, batch_sz=100, show_fig=False):
         K = len(set(Y)) # won't work later b/c we turn it into indicator
 
         # make a validation set
@@ -113,7 +113,7 @@ class ANN(object):
 
 def main():
     Xtrain, Ytrain, Xvalid, Yvalid = getData()
-    model = ANN([2000, 1000, 500])
+    model = ANN([2000, 1000, 500, 500])
     model.fit(Xtrain, Ytrain, Xvalid, Yvalid, show_fig=True)
 
 if __name__ == '__main__':
